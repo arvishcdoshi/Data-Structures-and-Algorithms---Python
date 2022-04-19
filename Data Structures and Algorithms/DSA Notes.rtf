@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 HelveticaNeue;
+\f3\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue233;\red0\green0\blue233;
+\red21\green22\blue24;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\cname textColor;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c93333;
+\cssrgb\c10980\c11373\c12157;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 You can think of RAM in the computer as a massive storage area..\
+\
+This massive storage area has shelves that are numbered. We call these Address or addresses.\
+\
+EXAMPLE\
+\
+0      00000001\
+1      00100001\
+2      00000001\
+3      01100001\
+4      00000001\
+5      00000001\
+6      11000001\
+7      01000001\
+\
+\
+It is a really big shelf that holds a lot of information and it allows us to run programs on our computer.\
+Each of the shelves holds 8 bits or numbers (1s and 0s, see above example)..each one of these \
+numbers is a bit. A bit is a tiny electrical switch that can be turned ON or OFF. But instead of calling it\
+ON or OFF, we call it \'911\'92 or \'910\'92.  \
+\
+8 bits is called 1 byte. Each shelf has 1 byte of storage and the CPU is connected to something called a memory controller. Memory controller does the actual reading of this memory as well as writing this memory.\
+\
+Sometimes, the shelf might be blank and doesn\'92t have anything. Now this direct connection to CPU is important (i.e. connection to memory controller), because the CPU asks the RAM, hey what\'92s in shelf no. zero ? And the memory controller actually has connections individually to all of these shelves.\
+\
+It\'92s really important because it means we can access 0th shelf and immediately access 7th shelf or 10781th shelf without having to climb down or step down. That\'92s what RAM means. We can access\
+memory really fast because we have connections, any shelf we want. We just need to know which shelf we\'92re looking for. \
+\
+We can access the bits at any random address in the memory right away. Even though the memory\
+controller can jump between far apart memory addresses really fast, programs tend to access memory that is nearby. The closer the information is to the CPU and the less it has to travel, the faster a program can run.\
+\
+So, computers are actually tuned to get extra speed boosts when reading memory addresses that are close to each other. For a computer to access 0th and 1st shelf is a lot faster than a computer for it to access 0th and 1000th because these are a lot closer together and to further optimise this, our computers also have CPU cache, where the CPU has a tiny tiny memory where it stores a copy of stuff that is really, really recent. This is called cache (heard LRU cache ?)\
+\
+Think of a system of 8 bits ? \
+\
+It can hold 255 bits of information. How ? \
+\
+8-bit (11111111) => \cf2 1 + 2 + 4 + 8 +16 + 32 +64 + 128 = 255\cf0 \
+\
+Similarly 16 bit => 65, 536\
+	       32 bit => 2,147,483,647\
+\
+If we have 8 bit system, we can\'92t really store the number 257 (because count starts from 0 to 255, so we can store upto 256 only)\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://artsites.ucsc.edu/ems/music/equipment/computers/bits_bytes/bits_bytes.html"}}{\fldrslt 
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 http://artsites.ucsc.edu/ems/music/equipment/computers/bits_bytes/bits_bytes.html}}
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.javatpoint.com/32-bit-vs-64-bit-operating-system"}}{\fldrslt \cf3 https://www.javatpoint.com/32-bit-vs-64-bit-operating-system}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.hellotech.com/blog/whats-the-difference-between-32-bit-and-64-bit"}}{\fldrslt \cf3 https://www.hellotech.com/blog/whats-the-difference-between-32-bit-and-64-bit}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://statmath.wu.ac.at/courses/data-analysis/itdtHTML/node55.html"}}{\fldrslt \cf3 https://statmath.wu.ac.at/courses/data-analysis/itdtHTML/node55.html}}\
+\
+IMP :\'97\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://en.m.wikipedia.org/wiki/64-bit_computing"}}{\fldrslt \cf4 \ulc4 \outl0\strokewidth0 \strokec4 https://en.m.wikipedia.org/wiki/64-bit_computing}}\cf4 \ulc4 \outl0\strokewidth0 \strokec4 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.quora.com/2-32-bits-is-roughly-4-billion-bits-4GB-which-is-around-0-5-GB-So-how-can-a-32-bit-machine-have-more-than-0-5-GB-of-RAM"}}{\fldrslt \cf4 \ulc4 https://www.quora.com/2-32-bits-is-roughly-4-billion-bits-4GB-which-is-around-0-5-GB-So-how-can-a-32-bit-machine-have-more-than-0-5-GB-of-RAM}}\
+\
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f2\fs28 \cf5 \cb6 \ulnone \strokec5 The 8-bit system means the register size in the microarchitecture is 8 bit, which also means the number of locations in memory is 2 to the power of 8 (256) (Ideal). if the memory is byte-addressable, which means the CPU can access a byte of the data. Then the size of memory is 256 locations \\times 8bit = 2^8 bytes. An ideal 32-bit system can have a 4GB memory.\
+\cb1 \uc0\u8232 \cb6 \
+In your case, it depends on the size of the integer, if it is 8bits (1 byte), then it only takes 1 memory location to store the data. There will be 255 locations left in memory. If you are using 32 bits (4 bytes) integer, then it will take 4 memory locations.\
+In the video, var a = 1 is 32 bit and takes 4 memory locations. So there will be 256-4 = 252 memory locations left.\
+
+\f1\fs24 \cf3 \cb1 \ul \ulc3 \outl0\strokewidth0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf7 \ulnone \
+
+\f0 asasas\
+In Javascript, if we do \
+\
+Math.pow(6,1000) => infinity\
+Why is that ?\
+\
+Well, as the number becomes to large to store in our RAM, then we need to represent this number\
+that we cannot store into something that is tangible in JavaScript\'92s case, it is infinity.\
+\
+Our goal is to minimise the operation that we need to do for the CPU to get the information, for the CPU to write information.\
+\
+\
+
+\f3\b\fs28 \ul Operations that we can perform on our data structures :-
+\f0\b0\fs24 \ulnone \
+\
+Data structures are simply ways to organise our data on our computers. \
+Different data structures are simply variations of how we store this data on our computers.\
+\
+Each data structure has it\'92s tradeoffs. Some are good at certain operations, others are good at other operations.\
+\
+Types of operations :- \
+\
+1) Insertion - adding new data item in given collection of items.\
+2) Deletion - delete an item from collection\
+3) Traversal - means access each data item exactly once so that it can be processed\
+4) Searching - find out location of data item if it exists in a given collection.\
+5) Sorting  \
+6) Access - How do we access this data that we have on our computer ?\
+\
+Each data structure that we know will have different pros and cons for each one of this.}

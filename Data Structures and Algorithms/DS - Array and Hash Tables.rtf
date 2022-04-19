@@ -1,0 +1,405 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\froman\fcharset0 Times-Roman;
+\f3\fnil\fcharset0 HelveticaNeue-Bold;\f4\fnil\fcharset0 HelveticaNeue;\f5\fnil\fcharset0 Menlo-Regular;
+\f6\froman\fcharset0 Times-Bold;}
+{\colortbl;\red255\green255\blue255;\red52\green0\blue71;\red0\green0\blue233;\red0\green0\blue0;
+\red21\green22\blue24;\red255\green255\blue255;\red37\green37\blue36;\red48\green0\blue138;}
+{\*\expandedcolortbl;;\cssrgb\c26879\c5470\c34975;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c0;
+\cssrgb\c10980\c11373\c12157;\cssrgb\c100000\c100000\c100000;\cssrgb\c19216\c19216\c18824;\cssrgb\c25098\c10588\c61176;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0  
+\f1\b\fs36 \cf2 ARRAY
+\f0\b0\fs24 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+Organises items sequentially which means one after another in memory.\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://betterprogramming.pub/a-complete-guide-to-the-python-range-function-d59d5209b14"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://betterprogramming.pub/a-complete-guide-to-the-python-range-function-d59d5209b14}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+const strings = ['a', 'b', 'c', 'd']\
+\
+//console.log(strings[2]) // O(1)\
+\
+// push method -> add something at the end of array\
+// Below operation has time complexity of O(1) , because we are just adding at end, not looping through the array\
+strings.push('e') \
+\
+// pop -> remove the last item from array\
+// Below operations also have time complexity of O(1), because weren't looping through anything, just removing the last item.\
+strings.pop()\
+strings.pop()\
+\
+// unshift -> add item at beginning\
+// Now x is at index 0 and d at 4. So we just iterated, looped through everything and reassigned the indexes. For the strings array, we did 5 operations (setting 0 to 4th index) to realign the indexes. So, this operation is O(n), because it depends on size of array and that's how long it takes to do that operation.\
+\
+// So we can conclude that, to have this operation (add item at beginning), array is not the optimal data structure.\
+strings.unshift('x')\
+\
+// splice -> add item at middle of the array\
+// Here also we shift (realign) half the array, so this becomes \
+// O(n/2), but we remove constants which equals to O(n)\
+strings.splice(2, 0, 'alien')// OP - [ 'x', 'a', 'alien', 'b', 'c' ] \
+console.log(strings)\
+\
+\
+\'97 > \'91this\'92 keyword refers to what object it\'92s inside of.\
+\
+INSTANTIATION :- It is when you make a copy of an object and reuse the code.\
+\
+In order to access the player (CLASS) and make copies(objects/instances) of it, you\'92ll have to run a constructor which is all the properties and methods that you want the player to have.\
+\
+Example :- \
+\
+Class Player \{\
+	constructor(name, type) \{\
+		this.name = name;\
+		this.type = type;\
+         \} \
+	 introduce() \{\
+		console.log(\'91Hi I am $(this.name), I am $(this.type)\'92)\
+     \}\
+\
+\}\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.w3schools.com/js/js_class_inheritance.asp"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://www.w3schools.com/js/js_class_inheritance.asp}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \'93Anytime we extend something, we need to also call the constructor function of the Player (parent).\
+We have to use super() with properties we wish to pass to the constructor.\
+\
+Class Wizard extends Player \{\
+	constructor(name, type) \{\
+		super(name, type)\
+	\}\
+\
+	play() \{\
+		console.log(\'91\'92Weeee Im of $(this.type)\'94)\
+	\}\
+\}\
+\
+const wizard1 = new Wizard(\'91test name\'92, \'91\'92Healer\'94)\
+const wizard2 = new Wizard(\'93\'94Shaun, \'93Dark magic\'94)\
+\
+Arrays are ordered and therefore they are good for Fast lookups and Fast Push/Pop (where insert and delete operation is for the last item in array).\
+\
+They\'92re bad for Slow inserts, slow deletes where we perform insert/delete for any other item other than last one.\
+\
+\
+\
+\
+\
+******** STRING REVERSAL *********\
+\
+function reverse(str)\{\
+  if(!str || typeof str != 'string' || str.length < 2 ) return str;\
+  \
+  const backwards = [];\
+  const totalItems = str.length - 1;\
+  for(let i = totalItems; i >= 0; i--)\{\
+    backwards.push(str[i]);\
+  \}\
+  return backwards.join('');\
+\}\
+\
+reverse('Hello World\'92)\
+\
+******** *************************************\
+\
+\
+\
+\
+******** MERGE SORT *************************\
+\
+function mergeSortedArrays(array1, array2)\{\
+  const mergedArray = [];\
+  let array1Item = array1[0];\
+  let array2Item = array2[0];\
+  let i = 1;\
+  let j = 1;\
+  \
+  //We should actually move these 2 if statements to line 2 so that we do the checks before we do assignments in line 3 and 4!\
+  if(array1.length === 0) \{\
+    return array2;\
+  \}\
+  if(array2.length === 0) \{\
+    return array1;\
+  \}\
+\
+  while (array1Item || array2Item)\{\
+   if(array2Item === undefined || array1Item < array2Item)\{\
+     mergedArray.push(array1Item);\
+     array1Item = array1[i];\
+     i++;\
+   \}   \
+   else \{\
+     mergedArray.push(array2Item);\
+     array2Item = array2[j];\
+     j++;\
+   \}\
+  \}\
+  return mergedArray;\
+\}\
+\
+mergeSortedArrays([0,3,4,31], [3,4,6,30]);\
+\
+***************************************************************************\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs36 \cf0 \ul \ulc0 IMP \'97> {\field{\*\fldinst{HYPERLINK "https://medium.com/@anny.huynh32/array-vs-hashtable-7a2ccfaff2"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ulc3 https://medium.com/@anny.huynh32/array-vs-hashtable-7a2ccfaff2}}
+\fs24 \ulnone \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b\fs36 \cf2 HASH TABLES
+\f0\b0\fs24 \cf0 \
+\
+Hash tables, hash maps, maps, unordered maps, dictionaries, objects.\
+There are many ways to call this data structure. Different languages have different name for it and slight variations on the hash tables.\
+\
+Objects in JavaScript are a type of Hash table.\
+In Python, it is called Dictionaries.\
+In Java, it is called Maps and in Ruby they\'92re called hashes.\
+\
+With the hash table, we get to set a key and a value i,e, a key-value pair.\
+\
+Let\'92s say we have an object basket and we wish to store grapes property in it.\
+ \
+Something like this :- basket.grapes = 10000\
+\
+The way a hash table works is we have a key which is \'91grapes\'92  and this is key used as the index of \
+where to find the value in memory. \
+\
+With arrays, we had the index which was a number, but with hash tables we use \'91grapes\'92  as a way to find it in our memory shelf.\
+\
+\
+ \'97 What is a hash function ?\
+\
+\'97  It is simply a function that generates a value of fixed length for each input that it gets.\
+\
+There are many types of hash functions..MD5, SHA1, SHA256.\
+Test here 
+\f2 \cf4 \expnd0\expndtw0\kerning0
+(**)
+\f0 \cf0 \kerning1\expnd0\expndtw0  \'97> {\field{\*\fldinst{HYPERLINK "http://www.miraclesalad.com/webtools/md5.php"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 http://www.miraclesalad.com/webtools/md5.php}}
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf4 \ulnone There are some key aspects of hash functions :-\
+ (I) It\'92s one way, which means once input is converted to hash, you cannot convert it back to input. It is practically impossible for us to have any clue as to what the input was. \
+\
+ (II) The hash will always be same for the same input no matter how many times you generate it. For ex, in the above link (**), if you put \'91Hello\'92 as input N no. of times, the output hash will remain same. If you change it to \'91Hell\'92, the hash will change. A function given an input (same input multiple times) always outputs the same output. This is called Idempotency.\
+\
+Coming back to basket.grapes = 10000\
+\
+What happens is we have a key \'91grapes\'92, we sent it to hash function that will hash it really fast and map \
+whatever the hash came out to be into a memory address where we want to store our data (i.e. 10000).\
+\
+We usually assume a time complexity or a Big O notation of O(1) because this happens really fast.\
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+ \'97 Insert Operation in Hash Tables - O(1)\
+\
+\'97 We hash the key, through the hash function and places it automatically into the address space that it comes up with \
+\
+\'97 Lookup Operation in Hash Tables - O(1)\
+\
+\'97 We access the property, that property is going to get hashed and direct us exactly to the address to find the values.. Similar thing for delete operation as well.\
+\
+HASH TABLES AREN\'92T ORDERED AND THEREFORE WE DON\'92T HAVE TO SHIFT INDEXES LIKE WE DID WITH ARRAYS.\
+\
+Example :-\
+\
+let user = \{\
+    \
+    age: 54,\
+    name: 'Kylie',\
+    magic: true,\
+    scream: function() \{\
+        console.log('ahhhhhhh!')\
+    \}\
+\}\
+\
+console.log(user.age) // O(1)\
+user.spell = 'abra ka dabra' // O(1)\
+console.log(user)\
+user.scream() // O(1)\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf0 \ul HASH COLLISIONS :-
+\f0\b0 \ulnone \
+\
+Hash functions randomly assigns space in memory and puts the values.\
+\
+When a key gets hashed, it generated address location of memory where the value has to be stored.\
+\
+If another key when hashed equal to the same address space where previously another data was stored, it is called Hash collision.\
+\
+In case of collision, it slows down reading and writing operations.\
+\
+
+\f1\b \ul How ?
+\f0\b0 \ulnone  \
+\
+Let\'92s say on a given memory location, we keep on adding data on it..say 5 elements\
+If we want to check what\'92s in that address space, we have to iterate through all of them. \
+\
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f3\b\fs28 \cf5 \cb6 \expnd0\expndtw0\kerning0
+When Andrei explained how lookup is affected in Hash Collisions and Time Complexity increases to O(n/k) where k = size of hash table. I did not understand what is n here?\
+\
+n is the number of iterations.
+\f4\b0 \
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 O(n/k)..where k is the size of hash table, and as per our rule we remove constants..so this becomes an O(n) operation.\
+\
+Collision is likely to happen in any hash table implementation.\
+\
+There are 2 common ways to deal with this Hash collisions :-\
+\
+1) Use Linked Lists \
+2) {\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Hash_table#Collision_resolution"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul https://en.wikipedia.org/wiki/Hash_table#Collision_resolution}}
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \
+\
+\cf4 \ulnone Hash tables \
+\
+Insert          O(1)\
+Lookup	O(1)\'85but can occasionally happen O(n) in case of Hash collisions.\
+Delete        O(1)\
+search         O(1)\
+\
+In a normal JavaScript object, whenever we enter keys they are stringified automatically (even if we have integer or a function as a key),only allows string keys. In ES6, we have 2 options, Hash and Map\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"}}{\fldrslt 
+\f4\fs32 \cf4 \cb6 Map}}
+\f4\fs32 \cf7 \cb6 \'a0is a collection of keyed data items, just like an\'a0
+\f5 \cf4 \cb1 Object
+\f4 \cf7 \cb6 . But the main difference is that\'a0
+\f5 \cf4 \cb1 Map
+\f4 \cf7 \cb6 \'a0allows keys of any type.
+\f2\fs24 \cf4 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf4 Map and Set in JS \'97 {\field{\*\fldinst{HYPERLINK "https://javascript.info/map-set"}}{\fldrslt \cf3 \ul \ulc3 https://javascript.info/map-set}}\
+//Map --> Gives you some order\
+//Set --> No duplicate keys\
+\
+VV IMP :-\
+\
+***********************\
+PYTHON HASH TABLE IMPLEMENTATION \'97> {\field{\*\fldinst{HYPERLINK "https://github.com/theja-m/Data-Structures-and-Algorithms/blob/master/Data%20Structures%20-%20Hashtables/Hash%20Table%20Implementation.py"}}{\fldrslt \cf3 \ul \ulc3 https://github.com/theja-m/Data-Structures-and-Algorithms/blob/master/Data%20Structures%20-%20Hashtables/Hash%20Table%20Implementation.py}}
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+\
+SAMPLE BUCKER STRUCTURE FROM ABOVE CODE IMPLEMENTATION :-\
+
+\f1\b [[], [], [], [['ora', 300]], [], [['banan', 200]], [['grapes', 1000], ['apples', 10]], [], [], [], [], [], [], [], [], []]
+\f0\b0 \
+\
+Hash buckets \'97> (1) {\field{\*\fldinst{HYPERLINK "https://databricks.com/glossary/hash-buckets"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://databricks.com/glossary/hash-buckets}}
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3  
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+			    (2) {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/9073903/what-does-bucket-entries-mean-in-the-context-of-a-hashtable"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul https://stackoverflow.com/questions/9073903/what-does-bucket-entries-mean-in-the-context-of-a-hashtable}}
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \
+			    \cf4 \ulnone (3) {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/730620/how-does-a-hash-table-work"}}{\fldrslt \cf3 \ul https://stackoverflow.com/questions/730620/how-does-a-hash-table-work}}\cf3 \ul \
+			    \cf4 \ulnone (4) {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/37959941/what-exactly-is-bucket-in-hashmap"}}{\fldrslt \cf3 \ul https://stackoverflow.com/questions/37959941/what-exactly-is-bucket-in-hashmap}}\cf3 \ul \
+\
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone GFG LINKS : (1) {\field{\*\fldinst{HYPERLINK "https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/}}\
+		     (2) {\field{\*\fldinst{HYPERLINK "https://www.geeksforgeeks.org/internal-working-of-hashmap-java/"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul https://www.geeksforgeeks.org/internal-working-of-hashmap-java/}}
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul \
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+Load factor \'97> {\field{\*\fldinst{HYPERLINK "https://www.javatpoint.com/load-factor-in-hashmap"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul https://www.javatpoint.com/load-factor-in-hashmap}}\
+\
+********************\
+\
+This hash table has a constructor that\'92ll receive a size..when we create a hash table we will give it a memory space size (ex..lets say we give 50). Which means we only want 50 shelfs of memory,\
+\
+So this will create a new Array and this array will hold information for us\'85we\'92ll have something like\
+\
+[ [\'91grapes\'92, 10000] ]\
+\
+Above representation is of a bucket. Hash tables store data in form buckets. That is where data lives in.\
+\
+\
+Keys are called indexes in an array. We don\'92t get to pick them. They\'92re always 0,1,2,3\'85 and so on.\
+In hash tables, we can pick them. \
+\
+We get to create flexible keys in case of Hash tables unlike Arrays.\
+\
+************  ONLY FOR PYTHON.  ********************\
+\
+Recently, the Python programming language has made Dictionaries (their Hash Tables) ordered by default! So in that language, the difference between and Array (List in Python) and Hash Table (Dict in Python) are less. \
+\
+You can read more about it here: \
+\
+\pard\pardeftab720\sl420\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://softwaremaniacs.org/blog/2020/02/05/dicts-ordered/en/"}}{\fldrslt 
+\f4\fs36 \cf8 \cb6 \expnd0\expndtw0\kerning0
+https://softwaremaniacs.org/blog/2020/02/05/dicts-ordered/en/}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+****************************************************************\
+\
+Hash tables are good for fast lookups, fast inserts and also gives us the advantage of having flexible keys (WE ALSO MUST HAVE GOOD COLLISION RESOLUTION )\
+\
+Some cons of Hash tables are that they are unordered and have slow key iteration.\
+If we want to grab all the keys from the hash table, we have to go through the entire memory space.\
+\
+\
+Hash tables are usually useful for improving time complexity especially of nested loops.\
+We get time complexity O(1), but the tradeoff is that we increase space complexity of O(n).\
+\
+THIS IS A TRADEOFF\
+Because we do something like mydict = \{\}, had to create new variable that keeps track of all items in array \
+See {\field{\*\fldinst{HYPERLINK "https://github.com/theja-m/Data-Structures-and-Algorithms/blob/master/Data%20Structures%20-%20Hashtables/First%20Recurring%20Character.py"}}{\fldrslt 
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul https://github.com/theja-m/Data-Structures-and-Algorithms/blob/master/Data%20Structures%20-%20Hashtables/First%20Recurring%20Character.py}}
+\f2 \cf3 \expnd0\expndtw0\kerning0
+\ul  
+\f6\b \ulnone (LINE NO 10)
+\f0\b0 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+\
+LOOK INTO THAT FINDING COMMON ITEMS IN TWO ARRAYS FIRST\
+\
+THEN START WITH LINKED LIST SECTION\
+\
+}

@@ -1,0 +1,499 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\froman\fcharset0 Times-Roman;
+\f3\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;\red5\green68\blue254;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c38136\c99824;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww22960\viewh10720\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb2 DATA STRUCTURES  AND ALGORITHM NOTES :-\cb1 \
+\
+Scalability :- As the inputs or the load grows larger and larger, is our code good enough to scale ?\
+\
+There are lot of factors that affect the execution speed of a program. Like the CPU capacity, no. of programs running on it and the programming language being used.\
+\
+So to differentiate good code from bad code excluding the above factors, we use Big O notation.\
+\
+Big O\
+\
+Big O notation is the language we use for talking about how long an algorithm takes to run.\
+\
+Just remember when we talk about Big O and Scalability of code, we simply mean when we grow\
+bigger and bigger with our input, how much does the algorithm slow down.\
+\
+The less it slows down or the slower it slows down, the better it is.\
+\
+Big O allows us and concerns us with how many steps it takes in a function..i.e how many more operations do we have to do. Big O focuses on how quickly our runtime grows.\
+\
+Example 1 :- \
+function compressFirstBox(boxes) \{\
+	boxes.forEach((box) => console.log(box))\
+\}\
+\
+For above example 1,\
+Big O of the function is O(n) \'97> means it depends on the no. of inputs.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf0 O(n)
+\f0\b0  \'97> Linear Time -> means the function depends upon the no. of inputs. If inputs increase, so does the operations. If the inputs increase, operations also increase linearly with it and thus takes more time. As boxes increase, so does the operations.\
+\
+Example 2 :- \
+function compressFirstBox(boxes) \{\
+	console.log(boxes[0])\
+\} \
+\
+For above example 2,\
+Big O of the function is O(1)\
+\
+
+\f1\b O(1)
+\f0\b0  \'97> Constant Time -> That is no matter how many times boxes are increased, we\'92re always just grabbing the first item in the array.\
+\
+Example 3 :-\
+const boxes = [0,1,2,3,4,5]\
+function logFirstTwoBoxes(boxes) \{\
+    console.log(boxes[0]) // 
+\f1\b O(1)
+\f0\b0 \
+    console.log(boxes[1]) // 
+\f1\b O(1)
+\f0\b0 \
+ \
+\}\
+\
+So, the big O for above example 3 will be O(1), because no matter how big the boxes get, the \
+Number of operations here is going to be 2.\
+\
+When it comes to cost and time, we don\'92t care about O(1),2 or 3 or even 100, we round this down\
+To just simply saying O(1) i.e we have a constant time, it\'92s a flat line in terms of scalability. Doesn\'92t matter how big our inputs are, we\'92re always going to do the constant amount of time on a function.\
+\
+Example 4 :-\
+\
+function funChallenge(input) \{
+\f1\b \
+  // Below 2 lines just runs once\
+  
+\f0\b0 let a = 10;
+\f1\b  // O(1)\
+  
+\f0\b0 a = 50 + 3;
+\f1\b  // O(1)\
+\
+  // Inside loop, everything will run depending on input..so it O(n) inside the loop.\
+  
+\f0\b0 for (let i=0; i<input.length; i++)
+\f1\b  
+\f0\b0 \{
+\f1\b // O(n) , n is input\
+     
+\f0\b0  anotherFunction();
+\f1\b  // O(n)\
+      l
+\f0\b0 et stranger = true; 
+\f1\b // O(n)\
+      
+\f0\b0 a++;
+\f1\b  // O(n)\
+  
+\f0\b0 \}
+\f1\b \
+  
+\f0\b0 return a; 
+\f1\b // O(1)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0 \cf0 \}
+\f1\b \
+\
+
+\f0\b0 So, for above function
+\f1\b \
+BIG O(3 + 4n)
+\f0\b0 \
+\
+Example 5 :-\
+\
+function anotherFunChallenge (input) \{\
+  let a = 5; 
+\f1\b // O(1)
+\f0\b0 \
+  let b = 10;
+\f1\b  // O(1)
+\f0\b0 \
+  let c = 50; 
+\f1\b // O(1)
+\f0\b0 \
+\
+  for (let i=0; i < input; i++) \{ 
+\f1\b // O(n)
+\f0\b0 \
+    let x = i + 1 
+\f1\b // O(n)
+\f0\b0 \
+    let y = i + 2 
+\f1\b // O(n)
+\f0\b0 \
+    let z = i + 3 
+\f1\b // O(n)
+\f0\b0 \
+  \}\
+\
+  for (let j=0; j < input; j++) \{ 
+\f1\b // O(n)
+\f0\b0 \
+    let p = j * 2 
+\f1\b // O(n)
+\f0\b0 \
+    let q = j * 2 
+\f1\b // O(n)
+\f0\b0 \
+  \}\
+\
+  let whomAmI = "I don't know" // O(1)\
+  \
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf0 O(4 + 7n)\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0 \cf0 Above calculations are a bit annoying, so there are a set of rules to follow in the interview when asked about big O\
+\
+So for example, O(4+7n) just turns into O(n), also O(3+4n) turns into O(n).\
+\
+There are 4 rules to determine the Big O\
+1) Worst case 2) Remove constants 3) Different terms for inputs 4) Drop non Dominants\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf0 RULE NO 1 (WORST CASE):-
+\f0\b0 \
+Consider the following function\
+\
+function findNemo (array) \{\
+	for (let i=0; i<array.length; i++) \{\
+	if (array[I] == \'91Nemo\'92) \{\
+	console.log(\'91found Nemo\'92)\
+	break;\
+\}\
+\}\
+\}\
+\
+If in the input array, 
+\f1\b nemo
+\f0\b0  is at last position, it is the worst case(O(n)) because it has to loop till the end\
+If 
+\f1\b nemo
+\f0\b0  is at first position, it is the best case (O(1)) as no matter how big input is (say 10000) we only have to loop once as 
+\f1\b nemo
+\f0\b0  is at the first position.\
+\
+Worst case :- Big O(n)\
+\
+We always care about what is the worst case scenario.\
+\
+
+\f1\b RULE NO 2 (REMOVE CONSTANTS):-
+\f0\b0 \
+Example :-\
+function printFirstItemThenFirstHalfThenSayHi100Times(items) \{\
+    console.log(items[0]);\
+\
+    var middleIndex = Math.floor(items.length / 2);\
+    var index = 0;\
+\
+    while (index < middleIndex) \{\
+        console.log(items[index]);\
+        index++;\
+    \}\
+\
+    for (var i = 0; i < 100; i++) \{\
+        console.log('hi');\
+    \}\
+\}\
+\
+
+\f1\b Big O (1 + n/2 +100) \'97> (We\'92re ignoring variable assignments and small calculations here)
+\f0\b0 \
+Rule no 2 says to drop constants\
+\
+Removing the constants, \
+Big O(101 + n/2), then Big O(1 + n/2), after that Big O(1 + n),\
+Finally because 1 and the divide operation can be very insignificant if n is in million, so we remove that as well\
+Final answer 
+\f1\b Big O(n)
+\f0\b0 \
+\
+
+\f1\b RULE NO 3 (DIFFERENT. TERMS FOR INPUTS):-
+\f0\b0 \
+\
+Example :-\
+\
+function compressBoxesTwice(boxes) \{\
+	boxes.forEach((box) => console.log(box))\
+\
+	boxes.forEach((box) => console.log(box))\
+\}\
+\
+Ideally big O of above function is O(2n), but as we drop the constants, it becomes O(n).\
+\
+But if we change the function a little bit,\
+\
+
+\f1\b (-/~)
+\f0\b0 \
+function compressBoxesTwice(
+\f1\b boxes, boxes2
+\f0\b0 ) \{\
+	boxes.forEach((box) => console.log(box))\
+\
+	boxes2.forEach((box) => console.log(box))\
+\}\
+\
+Now, first for loop is going to depend on how big the first item/input is.\
+Same for the second for loop.\
+\
+
+\f1\b We take different notation for each array because we don\'92t know the lengths. 
+\f0\b0 \
+In this case, big O would \
+\
+Big O(a + b) // \'91a\'92 for first for loop and \'91b\'92 for second for loop.\
+\
+
+\f1\b Example
+\f0\b0 \
+// Log all pairs of array.. \
+// ex (a,a), (a,b)..to (a,e)..similarly for b,c,d and e.\
+const boxes = ['a','b','c','d','e']\
+\
+function logAllPairs(array) \{\
+\
+  
+\f1\b for ( let i=0; i < array.length; i++) \{
+\f0\b0 \
+  // At first, i is 1, so loop through array again to get (1,1) to (1,5)\
+   
+\f1\b  for ( let j=0; j < array.length; j++)\{
+\f0\b0 \
+        console.log(array[i], array[j])      \
+    \} \
+  \}\
+\}\
+\
+If there are two for loops one after another like in above example 
+\f1\b (-/~)
+\f0\b0 \
+Thumb rule is \
+whenever we see consecutive loops , we use addition (+)\
+But when we see loops that are nested, we use multiplication (*)\
+\
+So, for the logAllPairs function, big O is O(n*n) which equals to 
+\f1\b O(n^2).\
+O(n^2) \'97> Quadratic Time -> \
+That means every time, number of elements increase..eg we have 2 elements, we have to do 4 operations. Similarly if 3 elements, it increase quadratically to 9.\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 \expnd0\expndtw0\kerning0
+Quadratic- every element in a collection needs to be compared to ever other element. Two nested loops
+\f0\b0 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf0 RULE NO 4 :- DROP NON DOMINANTS OR DROP NON DOMINANT TERMS.
+\f0\b0 \
+\
+Example :-\
+\
+function printAllNumbersThenAllPairSums(numbers) \{\
+\
+  console.log('these are the numbers:');\
+  numbers.forEach(function(number) \{\
+    console.log(number);\
+  \});\
+\
+  console.log('and these are their sums:');\
+  numbers.forEach(function(firstNumber) \{\
+    numbers.forEach(function(secondNumber) \{\
+      console.log(firstNumber + secondNumber);\
+    \});\
+  \});\
+\}\
+\
+printAllNumbersThenAllPairSums([1,2,3,4,5])\
+\
+OUTPUT :-\
+\
+these are the numbers:\
+1\
+2\
+3\
+4\
+5\
+and these are their sums:\
+2\
+3\
+4\
+5\
+6\
+3\
+4\
+5\
+6\
+7\
+4\
+5\
+6\
+7\
+8\
+5\
+6\
+7\
+8\
+9\
+6\
+7\
+8\
+9\
+10\
+\
+\
+Let\'92s write the Big O for the above function..\
+\
+At first we have the simple for loop which prints the input array \
+So, O(n + _fill in the blanks_)\
+and then we have nested for loops.\
+So now, O(n + n^2)\
+\
+Rule no 4 states we have to drop the non dominant terms\
+\
+That means we care about the most important term, in this case we drop N and just have N^2\
+ ==> O(n^2)\
+\
+
+\f1\b Because as the input increases, the size of \'91n^2\'92 is way more important than the \'92n\'92.
+\f0\b0  We always \
+just keep the dominant term.\
+\
+Ex :- O(x^2 + 3x + 100 + x/2)\
+\
+Here, as per the rule 4, 
+\f1\b x^2 is more significant.
+\f0\b0  \
+How ? Let\'92s say x = 5, so x^2 is 25, 3*x is 15 and x/2 is 2.5. The dominant term is 100, but with big O we worry about scale and as things go larger and larger, 100 will be very much insignificant\
+And can also be considered negligible.\
+\
+Assume x = 5000, so now x^2 is much more and rest all is insignificant and we can ignore it.\
+So, answer is 
+\f1\b O(x^2)\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \'97 Refer the Big O cheat sheet.
+\f0\b0 \
+\
+\
+O(n!) - Factorial time\
+The most expensive one.\
+\
+What it means ?\
+It means that we are adding a nested loop for every input that we have. Means we\'92re adding a loop for every element that you\'92re iterating over.\
+\
+Example :-\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\fs26 \cf3 \expnd0\expndtw0\kerning0
+void nFacRuntimeFunc(int n) \{\
+  for(int i=0; i<n; i++) \{\
+    nFacRuntimeFunc(n-1);\
+  \}\
+\}\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf3 What can cause time in a function?- \
+   \'97Operations (+, -, *, /) \
+   \'97Comparisons (<, >, ==) \
+   \'97Looping (for, while) \
+   \'97Outside Function call (function())
+\f2\fs26 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+Good code comprises of two qualities : Readable and Scalable.\
+Scalable means
+\f1\b  speed
+\f0\b0  (how fast is the runtime of our code ? Dictated by the CPU) and
+\f1\b  memory
+\f0\b0  (how much RAM the computer has)\
+We have talked about speed as above when calculating the big O of function.\
+\
+We also need to analyse the memory usage of code. With this, we have Big O to talk about space complexity.\
+Same notation but different topic.\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\b \cf0 Space Complexity :-\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\b0 \cf3 \expnd0\expndtw0\kerning0
+What causes Space complexity?- \
+   \'97Variables \
+   \'97Data Structures \
+   \'97Function Call \
+   \'97Allocations\cf0 \kerning1\expnd0\expndtw0 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\b \cf0 EXAMPLE - 1
+\f0\b0 \
+//#Time complexity of the below function is O(n)\
+\
+function boooo(n) \{\
+    for (let i = 0; i < n; i++) \{\
+        console.log('booooo');\
+    \}\
+\}\
+\
+When we talk about space complexity, we\'92re talking about additional space, \
+So we don\'92t include space taken up by the inputs, we only care about what happens inside the function (in above case the for loop)\
+\
+Within the function, are we adding any space ?\
+Not really, but the only thing we have is let i = 0, other than that, we\'92re not adding any memory. \
+So the above function has space complexity of 
+\f1\b O(1)\
+\
+EXAMPLE - 2
+\f0\b0 \
+\
+function arrayOfHiNTimes(n) \{\
+    var hiArray = [];\
+    for (let i = 0; i < n; i++) \{\
+        hiArray[i] = 'hi';\
+    \}\
+    return hiArray;\
+\}\
+\
+arrayOfHiNTimes(6)\
+\
+All we\'92re doing is creating a new array and for a number of items in our input (i.e. n), we fill the hiArray repeatedly with \'91Hi\'92 by looping.\
+// In above case, the content of hiArray will be [ 'hi', 'hi', 'hi', 'hi', 'hi', 'hi' ]\
+\
+So, what is the space complexity of this ?\
+In our case, we create variable i in our loop and also the new array.\
+\
+Space complexity will be 
+\f1\b O(n)
+\f0\b0 \
+\'97> We\'92re creating a new data structure(ARRAY) and adding memory, each item is in additional memory space on our computer 
+\f3\i \'92n\'92
+\f0\i0  times.\
+\'97> So, it will be O(n) depending upon the value of n which takes up additional memory space.\
+\
+\
+\
+}
